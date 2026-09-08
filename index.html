@@ -1,0 +1,371 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Заголовки: как я их вижу</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--cream:#F5F2EA;--ink:#2B2B2B;--ink2:#4A4A4A;--mute:#8F8F8F;--line:#DDD9CF;
+  --blue:#3766C8;--bluebg:#8FB1E0;--darkbg:#6A665D;--marker:#F5C445;--skylight:#E9F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+.brace{color:var(--blue);font-weight:300}
+.b{color:var(--blue)}
+.mark{background:linear-gradient(transparent 12%,var(--marker) 12%,var(--marker) 95%,transparent 95%);padding:1px 6px;border-radius:2px}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+h1{font-size:clamp(30px,6vw,44px);font-weight:400;line-height:1.18;letter-spacing:-0.02em}
+h2.sec{font-size:clamp(24px,4.5vw,30px);font-weight:600;line-height:1.16;letter-spacing:-0.01em;margin:10px 0 18px}
+h3.sub{font-size:18px;font-weight:600;line-height:1.3;margin:26px 0 8px}
+.secno{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:var(--blue);
+  letter-spacing:.08em;padding:5px 12px;border-radius:999px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:24px 0 10px}
+.quote{font-style:italic}
+.txt{font-size:16px;line-height:1.6}
+.txt p{margin:12px 0}
+.txt b{font-weight:600}
+/* IG-пост вставки */
+.igpost{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(43,43,43,.09);max-width:560px}
+.igpost .ph{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid #F0EDE6}
+.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:700;flex:0 0 30px}
+.avbad{background:#C7C2B6}.avgood{background:var(--blue)}
+.un{font-size:13.5px;font-weight:600;color:var(--ink)}
+.dots{margin-left:auto;color:#B9B4A8;font-weight:700;letter-spacing:1px}
+.pbody{padding:16px 18px;font-size:15.5px;line-height:1.55;color:var(--ink)}
+.igpost.bad .pbody{color:var(--ink2)}
+.ft{display:flex;gap:16px;padding:10px 16px;border-top:1px solid #F0EDE6;color:#A9A499;font-size:13.5px}
+.ft .sv{margin-left:auto}
+.igpost.good{border:2px solid var(--blue)}
+.pair{display:flex;gap:14px;margin-top:10px;margin-bottom:18px;flex-wrap:wrap}
+.pair .igpost{flex:1 1 260px}
+/* примеры заголовков */
+.ex{background:#fff;border-radius:14px;border-left:4px solid var(--blue);padding:16px 20px;margin:10px 0;
+  font-size:17px;line-height:1.45;box-shadow:0 1px 0 rgba(43,43,43,.07)}
+.ex small{display:block;margin-top:8px;font-size:13.5px;color:var(--mute);font-style:normal}
+.ex .sub2{display:block;margin-top:6px;font-size:15px;color:var(--ink2)}
+/* списки */
+.list{list-style:none;margin-top:8px}
+.list li{position:relative;padding-left:30px;margin:12px 0;font-size:16px;line-height:1.6}
+.list li b{font-weight:600}
+.list.x li::before{content:"✕";position:absolute;left:0;top:1px;color:var(--blue);font-weight:700}
+.list.ok li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--blue);font-weight:700}
+.list.num{counter-reset:s}
+.list.num li{padding-left:40px}
+.list.num li::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.06em}
+.band-dark .list.x li::before,.band-dark .list.ok li::before,.band-dark .list.num li::before{color:var(--marker)}
+.band-blue .list.x li::before,.band-blue .list.ok li::before,.band-blue .list.num li::before{color:#fff}
+/* sticky nav */
+nav.secnav{position:sticky;top:0;z-index:20;background:rgba(245,242,234,.94);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line)}
+nav.secnav .inner{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.secnav .inner::-webkit-scrollbar{display:none}
+nav.secnav a{flex:0 0 auto;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;border:1.5px solid var(--line);color:var(--ink2);font-size:13px;font-weight:600;text-decoration:none;background:#fff}
+nav.secnav a:hover{border-color:var(--blue);color:var(--blue)}
+/* TOC */
+.toc{background:#fff;border-radius:16px;padding:26px 28px;margin:10px 0 44px;box-shadow:0 1px 0 rgba(43,43,43,.07)}
+.toc .kicker{color:var(--blue)}
+.toc ol{list-style:none;margin-top:14px}
+@media(min-width:640px){.toc ol{columns:2;column-gap:36px}}
+.toc li{break-inside:avoid;margin:7px 0}
+.toc a{color:var(--ink);text-decoration:none;font-size:15.5px;display:flex;gap:10px;align-items:baseline}
+.toc a:hover{color:var(--blue)}
+.toc .n{color:var(--blue);font-weight:700;font-size:13px;min-width:22px}
+header.cover{padding:64px 0 40px}
+.lead{font-size:18px;color:var(--ink2);margin-top:26px;max-width:620px}
+.intro{padding:8px 0 34px}
+.intro p{font-size:17px;margin:14px 0;max-width:660px}
+/* rotating bands: cream / dark / blue */
+.band{padding:50px 0}
+.band-cream{background:var(--cream)}
+.band-dark{background:var(--darkbg)}
+.band-blue{background:var(--bluebg)}
+.band-dark h2.sec,.band-dark h3.sub,.band-dark .txt,.band-dark .list li{color:#fff}
+.band-dark .lbl{color:#CFCABE}
+.band-dark .brace{color:var(--skylight)}
+.band-blue h2.sec,.band-blue h3.sub,.band-blue .txt,.band-blue .list li{color:#1E2A3D}
+.band-blue .lbl{color:#33507C}
+.band-dark .secno{background:var(--marker);color:var(--ink)}
+.band-blue .secno{background:#fff;color:var(--blue)}
+.band-dark .ex{border-left-color:var(--marker)}
+.band-dark .mark,.band-blue .mark{color:var(--ink)}
+.toplink{display:inline-block;margin-top:22px;font-size:13px;text-decoration:none;color:var(--mute)}
+.band-dark .toplink{color:#CFCABE}.band-blue .toplink{color:#33507C}
+.toplink:hover{color:var(--blue)}
+.final{padding:48px 0 80px;background:var(--cream)}
+.short{margin-top:16px;padding:26px 28px;background:#fff;border-radius:16px;font-size:18px;line-height:1.55;box-shadow:0 1px 0 rgba(43,43,43,.07)}
+.cta{margin-top:34px;padding:28px 30px;border:2px solid var(--blue);border-radius:14px;background:#fff}
+.cta a.btn{display:inline-block;margin-top:16px;background:var(--blue);color:#fff;font-weight:600;font-size:16px;
+  padding:13px 26px;border-radius:10px;text-decoration:none}
+.cta a.btn:hover{opacity:.92}
+.cta .gets{margin-top:14px;display:grid;gap:8px}
+.cta .gets div{font-size:15px;line-height:1.5;color:var(--ink2);padding-left:24px;position:relative}
+.cta .gets div::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700}
+footer{padding:26px 0 44px;font-size:13px;color:var(--mute);background:var(--cream)}
+/* как использовать гайд */
+.howto{margin:34px 0 10px}
+.howto .cards{display:grid;gap:14px;margin-top:14px}
+@media(min-width:640px){.howto .cards{grid-template-columns:1fr 1fr 1fr}}
+.ucard{background:#fff;border-radius:16px;padding:22px 22px 24px;box-shadow:0 1px 0 rgba(43,43,43,.07);display:flex;flex-direction:column}
+.ucard .n{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.08em}
+.ucard h3{font-size:17px;font-weight:600;margin:8px 0 8px;line-height:1.3}
+.ucard p{font-size:14.5px;line-height:1.55;color:var(--ink2);flex:1}
+.ucard .dl{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:#fff;background:var(--blue);
+  text-decoration:none;border:1.5px solid var(--blue);border-radius:9px;padding:9px 16px;text-align:center}
+.ucard .dl:hover{opacity:.9}
+.ucard .dl2{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;text-align:center}
+.ucard.hero{background:var(--blue)}
+.ucard.hero .n{color:var(--marker)}
+.ucard.hero h3{color:#fff}
+.ucard.hero p{color:#E4EDFA}
+.ucard.hero .dl{background:#fff;color:var(--blue);border-color:#fff}
+.ucard.hero .dl2{color:#E4EDFA}
+.promptbox{margin-top:14px;background:#fff;border-radius:16px;padding:20px 22px;box-shadow:0 1px 0 rgba(43,43,43,.07)}
+.promptbox .lbl{margin:0 0 10px}
+.promptbox p{font-size:14.5px;line-height:1.55;color:var(--ink2);margin-bottom:12px}
+.promptbox pre{white-space:pre-wrap;font-family:'Inter',sans-serif;font-size:14px;line-height:1.55;color:var(--ink2);
+  background:var(--skylight);border-radius:10px;padding:14px 16px}
+.promptbox code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--skylight);padding:2px 6px;border-radius:5px}
+.copybtn{margin-top:12px;font-size:13.5px;font-weight:600;color:var(--blue);background:none;border:1.5px solid var(--blue);
+  border-radius:9px;padding:8px 16px;cursor:pointer;font-family:'Inter',sans-serif}
+.copybtn:hover{background:var(--blue);color:#fff}
+/* компактные офферы по ходу страницы */
+.offerstrip{padding:26px 0;background:var(--cream)}
+.offerstrip .card{background:#fff;border-radius:14px;border-left:4px solid var(--blue);
+  padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 1px 0 rgba(43,43,43,.07)}
+.offerstrip .txt{flex:1 1 340px;font-size:15px;line-height:1.5;color:var(--ink2)}
+.offerstrip .txt b{color:var(--ink);font-weight:600}
+.offerstrip a.go{flex:0 0 auto;background:var(--blue);color:#fff;font-weight:600;font-size:14.5px;
+  padding:11px 20px;border-radius:9px;text-decoration:none;white-space:nowrap}
+.offerstrip a.go:hover{opacity:.9}
+</style></head><body id="top">
+<nav class="secnav"><div class="inner"><a href="#sec-1" title="Что вообще делает заголовок">1</a><a href="#sec-2" title="Главный фильтр: чей это язык">2</a><a href="#sec-3" title="Пять типов, которые работают">3</a><a href="#sec-4" title="Антипаттерны">4</a><a href="#sec-5" title="Как делать: процедура">5</a><a href="#sec-6" title="Тесты">6</a><a href="#sec-7" title="Разница по форматам">7</a><a href="#sec-8" title="Как натренировать глаз">8</a></div></nav>
+<div class="wrap">
+<header class="cover">
+  <div class="kicker">@andreyandreev.me · гайд по заголовкам</div>
+  <h1 style="margin-top:26px">Заголовки: <span class="brace">{</span>&nbsp;<span class="b">как я их вижу</span>&nbsp;<span class="brace">}</span></h1>
+  <div class="lead">Документ для того, кто пишет тексты в моём блоге или для меня. Это не свод правил ради правил — это то, по каким признакам я отличаю заголовок, который работает, от заголовка, который <span class="mark">просто стоит сверху</span>.</div>
+</header>
+<section class="intro">
+  <div class="kicker">зачем этот гайд</div>
+  <p>Пост написан, вычитан, картинка стоит. Сверху — «Про выгорание». Человек в ленте видит тему, кивает и листает дальше: ему всё понятно, читать незачем.</p>
+  <p>Заголовок — единственная часть текста, которую увидят все. Дальше читают только те, кого он остановил. Здесь — как я отличаю заголовок, который останавливает, от заголовка, который сообщает тему.</p>
+  <div class="howto">
+    <div class="kicker">как использовать этот гайд <span class="brace">{</span>&nbsp;<span class="b">три способа</span>&nbsp;<span class="brace">}</span></div>
+    <div class="cards">
+      <div class="ucard">
+        <div class="n">01</div>
+        <h3>Прочитать и переписать свои заголовки</h3>
+        <p>Возьмите десять своих постов и напишите к ним заголовки заново, зная текст. Это самое быстрое упражнение из главы 8: текст уже есть, работа только с формулировкой.</p>
+      </div>
+      <div class="ucard">
+        <div class="n">02</div>
+        <h3>Скачать PDF</h3>
+        <p>Та же версия гайда одним файлом — чтобы держать под рукой в телефоне и прогонять каждый заголовок через шесть тестов перед публикацией.</p>
+        <a class="dl" href="zagolovki.pdf" download>Скачать PDF →</a>
+      </div>
+      <div class="ucard hero">
+        <div class="n">03</div>
+        <h3>Поставить как скилл своему агенту</h3>
+        <p>Готовый скилл для Claude Code, Codex и других агентов. Положите папку в скиллы — и «сделай заголовок к этому посту» будет давать десять вариантов по пяти типам, прогон через шесть тестов и топ-3 с версиями для обложки и подписи.</p>
+        <a class="dl" href="zagolovki-skill.zip" download>Скачать скилл для агента →</a>
+        <a class="dl2" href="zagolovki.md" download>Файл для ChatGPT / Claude в чате →</a>
+      </div>
+    </div>
+    <div class="promptbox">
+      <div class="lbl">Как подключить скилл</div>
+      <p>Распакуйте архив и положите папку <code>zagolovki</code> в <code>~/.claude/skills/</code> (Claude Code) или в папку скиллов вашего агента. Дальше просто просите: «сделай заголовки к этому посту». Если агента нет — прикрепите файл для чата к ChatGPT или Claude вместе с постом и вставьте этот промпт:</p>
+      <pre id="aiprompt">Прикрепляю гайд «Заголовки: как я их вижу» и свой пост. Работай по инструкции в конце гайда: найди самые живые фразы внутри текста, сделай десять вариантов заголовка по пяти типам словами читателя, а не эксперта, прогони каждый через шесть тестов и покажи таблицей, выбери три лучших и для каждого дай версию для обложки карусели (3–7 слов) и для первой строки подписи. Антипаттерны из главы 4 — под запретом. Ничего не выдумывай, чего нет в тексте.
+
+Вот мой пост:
+[вставьте текст поста]</pre>
+      <button class="copybtn" onclick="navigator.clipboard.writeText(document.getElementById('aiprompt').textContent).then(()=>{this.textContent='Скопировано ✓';setTimeout(()=>this.textContent='Скопировать промпт',2000)})">Скопировать промпт</button>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="kicker">содержание</div>
+    <ol>
+      <li><a href="#sec-1"><span class="n">01</span> Что вообще делает заголовок</a></li>
+      <li><a href="#sec-2"><span class="n">02</span> Главный фильтр: чей это язык</a></li>
+      <li><a href="#sec-3"><span class="n">03</span> Пять типов, которые работают</a></li>
+      <li><a href="#sec-4"><span class="n">04</span> Антипаттерны</a></li>
+      <li><a href="#sec-5"><span class="n">05</span> Как делать: процедура</a></li>
+      <li><a href="#sec-6"><span class="n">06</span> Тесты</a></li>
+      <li><a href="#sec-7"><span class="n">07</span> Разница по форматам</a></li>
+      <li><a href="#sec-8"><span class="n">08</span> Как натренировать глаз</a></li>
+    </ol>
+  </div>
+</section>
+</div>
+
+<section class="band band-cream" id="sec-1"><div class="wrap">
+<span class="secno">ГЛАВА 1 / 8</span>
+<h2 class="sec">Что вообще делает заголовок</h2>
+<div class="txt">
+  <p><b>Заголовок не сообщает тему. Он открывает зазор.</b></p>
+  <p>Если после заголовка читателю всё понятно — читать нечего, он уже получил сообщение и пролистал. Заголовок должен оставить внутри вопрос, на который отвечает текст. Не интригу («вы не поверите, что было дальше»), а именно вопрос, который у человека уже есть, просто он его так не формулировал.</p>
+  <p>Второе, что делает заголовок, — даёт узнавание. Человек должен увидеть в нём себя, а не тему.</p>
+</div>
+<div class="pair">
+  <div class="igpost bad"><div class="ph"><div class="av avbad">✕</div><span class="un">тема</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Про выгорание»</span></div><div class="ft"><span>♡ 12</span><span>💬 0</span><span class="sv">⌂</span></div></div>
+  <div class="igpost good"><div class="ph"><div class="av avgood">✓</div><span class="un">узнавание</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Тело уже орёт. А я ему: потерпи, у меня запуск»</span></div><div class="ft"><span>♡ 340</span><span>💬 27</span><span class="sv">⌂</span></div></div>
+</div>
+<div class="txt"><p>Разница между ними — вся разница между прочитанным и непрочитанным постом.</p></div>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="band band-dark" id="sec-2"><div class="wrap">
+<span class="secno">ГЛАВА 2 / 8</span>
+<h2 class="sec">Главный фильтр: чей это язык</h2>
+<div class="txt">
+  <p>Самая частая ошибка — заголовок написан словами специалиста, а не словами человека.</p>
+  <p>Специалист называет состояние. Человек проговаривает его изнутри, теми словами, которыми думает про себя в одиннадцать вечера.</p>
+</div>
+<div class="lbl">Словарь эксперта → язык аудитории</div>
+<div class="pair">
+  <div class="igpost bad"><div class="ph"><div class="av avbad">✕</div><span class="un">не работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Мы научились быть взрослыми, игнорируя собственное тело»</span></div></div>
+  <div class="igpost good"><div class="ph"><div class="av avgood">✓</div><span class="un">работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Тело уже орёт. А я ему: потерпи, у меня запуск»</span></div></div>
+</div>
+<div class="pair">
+  <div class="igpost bad"><div class="ph"><div class="av avbad">✕</div><span class="un">не работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Мы часто обесцениваем свой труд»</span></div></div>
+  <div class="igpost good"><div class="ph"><div class="av avgood">✓</div><span class="un">работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Отправляю счёт — и перед ним „извини, что напоминаю“»</span></div></div>
+</div>
+<div class="pair">
+  <div class="igpost bad"><div class="ph"><div class="av avbad">✕</div><span class="un">не работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Страх публичности связан со страхом оценки»</span></div></div>
+  <div class="igpost good"><div class="ph"><div class="av avgood">✓</div><span class="un">работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Опубликовал. И сразу пошёл смотреть, кто увидел»</span></div></div>
+</div>
+<div class="pair">
+  <div class="igpost bad"><div class="ph"><div class="av avbad">✕</div><span class="un">не работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Синдром самозванца у экспертов»</span></div></div>
+  <div class="igpost good"><div class="ph"><div class="av avgood">✓</div><span class="un">работает</span><span class="dots">···</span></div><div class="pbody"><span class="quote">«Меня похвалили. Первая мысль — „они просто не разобрались“»</span></div></div>
+</div>
+<div class="txt">
+  <p>Профессиональные слова (нервная система, децентрация, felt sense, дофамин) — можно внутри текста, когда объясняешь механизм. На входе — никогда. Ни на обложке, ни в первой строке, ни в CTA.</p>
+  <p><b>Проверка:</b> так говорят вслух или только пишут? Если формулировку невозможно произнести живому человеку в разговоре — она не заголовок.</p>
+</div>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="band band-blue" id="sec-3"><div class="wrap">
+<span class="secno">ГЛАВА 3 / 8</span>
+<h2 class="sec">Пять типов, которые работают</h2>
+<h3 class="sub">3.1. Ситуация</h3>
+<div class="txt"><p>Короткая сцена, 1–3 предложения. Конкретное время, конкретное действие.</p></div>
+<div class="ex">Закрыл сделку. Команда поздравляет. Иду домой — и ничего.</div>
+<div class="ex">Три часа ночи. Кофе уже остыл. Завтра — большой созвон.</div>
+<div class="ex">Третий выходной подряд. А отдыха нет.</div>
+<h3 class="sub">3.2. Фраза-крик</h3>
+<div class="txt"><p>То, что человек думает, но не произносит. Короткий удар.</p></div>
+<div class="ex">Всё работает. А меня — нет.</div>
+<div class="ex">Я не помню, чего хотел.</div>
+<h3 class="sub">3.3. Вердикт</h3>
+<div class="txt"><p>Озвучить ходовое обещание или веру в кавычках — и сразу дать оценку. Без ложного согласия.</p></div>
+<div class="ex">«Накоплю и уеду к своему домику на море» — довольно лживое обещание.<small>Дальше сразу зазор: «И год за годом домик не приближается ни на шаг. Почему?»</small></div>
+<h3 class="sub">3.4. Вопрос от первого лица</h3>
+<div class="txt"><p>Часто с ироничным посвящением — сразу задаёт разговорную рамку.</p></div>
+<div class="ex">Почему мне страшно, когда всё хорошо?<small>Героям кризисов посвящается.</small></div>
+<h3 class="sub">3.5. Двойной хук: реплика-боль + подзаголовок-польза</h3>
+<div class="txt"><p>Первая строка — живая реплика голосом читателя. Вторая — что он получит.</p></div>
+<div class="ex">Бизнес прогорел — может, это просто не моё?<span class="sub2">Как находить силы в моменты, когда кажется, что сил нет</span></div>
+<div class="txt">
+  <p>Работает на обложке карусели: обе строки на первый слайд, тело поста начинается со второго.</p>
+  <p><b>Дополнительный приём — переворот ожидания.</b> Взять то, что читатель считает плохой новостью, и пообещать обратное: «почему „всем плевать“ — это хорошая новость». Работает, когда текст правда переворачивает.</p>
+</div>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="band band-cream" id="sec-4"><div class="wrap">
+<span class="secno">ГЛАВА 4 / 8</span>
+<h2 class="sec">Антипаттерны</h2>
+<div class="txt"><p>Эти вещи режу сразу, без обсуждения.</p></div>
+<ul class="list x">
+  <li><b>Определение или заход издалека.</b> «В современном мире…», «Все мы знаем, что…», «Прокрастинация — это…». Первая строка не разогревает, она бьёт.</li>
+  <li><b>Абстрактный тезис сверху.</b> Тематически верно, но читатель себя не узнаёт, потому что сам так про себя не думает.</li>
+  <li><b>Профессиональный словарь на входе.</b> См. главу 2.</li>
+  <li><b>Открытие с отрицания чужого тезиса.</b> «Прокрастинация — не лень» — слабо: заголовок сначала подсовывает чужую мысль, потом её отрицает. Половина внимания уходит впустую.</li>
+  <li><b>Слишком красиво выстроенная лесенка.</b> «Жду, пока почувствую себя готовым. Пока появится уверенность. Пока внутри что-то щёлкнет.» Три параллельных предложения с нарастанием читаются как сгенерированные. Одна ступень — живо, три — литературно.</li>
+  <li><b>Конструкция «Это не X, это Y»</b> в любом виде.</li>
+  <li><b>«Знакомо?»</b> и подобная фальшивая близость.</li>
+  <li><b>Кликбейт без покрытия.</b> Если текст не выполняет обещание заголовка — заголовок плохой, даже если по кликам хороший. Второй раз этому человеку уже не поверят.</li>
+  <li><b>Капс.</b> Первая буква заглавная, дальше обычный регистр. КАПС ЧИТАЕТСЯ КАК КРИК И ХУЖЕ СКАНИРУЕТСЯ.</li>
+  <li><b>Числовые обещания, которых нет в тексте.</b> «7 способов», если в посте не семь способов.</li>
+</ul>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="offerstrip"><div class="wrap"><div class="card">
+  <div class="txt">Заголовок — одна деталь. <b>Как устроен весь блог, который приводит клиентов,</b> — в 37-минутной видео-экскурсии по моей системе.</div>
+  <a class="go" href="https://t.me/mbga_materials/2">Смотреть экскурсию →</a>
+</div></div></section>
+
+<section class="band band-dark" id="sec-5"><div class="wrap">
+<span class="secno">ГЛАВА 5 / 8</span>
+<h2 class="sec">Как делать: процедура</h2>
+<ul class="list num">
+  <li><b>Сначала текст, потом заголовок.</b> Заголовок почти никогда не придумывается первым. Он вынимается из готового текста.</li>
+  <li><b>Найти заголовок внутри поста.</b> Самая живая фраза обычно уже написана — в середине, в третьем-четвёртом абзаце, там, где автор расписался и перестал стараться. Отдельное правило: первый абзац в девяти случаях из десяти можно выкинуть, и довольно часто настоящий заголовок прячется под ним.</li>
+  <li><b>Сделать десять вариантов, а не два.</b> Первые три всегда очевидные — их и генерирует голова по умолчанию. <span class="mark">Интересное начинается с пятого.</span> Это механическая работа, не вдохновение.</li>
+  <li><b>Прогнать каждый через тесты</b> (глава 6).</li>
+  <li><b>Прочитать вслух.</b> Споткнулся — переписать.</li>
+</ul>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="band band-blue" id="sec-6"><div class="wrap">
+<span class="secno">ГЛАВА 6 / 8</span>
+<h2 class="sec">Тесты</h2>
+<div class="txt"><p>Шесть вопросов к каждому варианту. Заголовок должен пройти все.</p></div>
+<ul class="list num">
+  <li><b>Узнавание.</b> Человек скажет «это про меня» или «это про тему»? Нужно первое.</li>
+  <li><b>Зазор.</b> После заголовка остаётся вопрос? Или всё уже сказано и читать незачем?</li>
+  <li><b>Голос.</b> Так говорят вслух — или только пишут?</li>
+  <li><b>Подмена.</b> Можно ли поставить этот заголовок к любому другому посту на эту же тему? Если да — он про тему, а не про этот текст. Переделать.</li>
+  <li><b>Покрытие.</b> Текст выполняет обещание заголовка? Полностью, а не наполовину?</li>
+  <li><b>Лента.</b> Заголовок один, без картинки, зажат между двумя чужими постами. Остановит?</li>
+</ul>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="band band-cream" id="sec-7"><div class="wrap">
+<span class="secno">ГЛАВА 7 / 8</span>
+<h2 class="sec">Разница по форматам</h2>
+<ul class="list ok">
+  <li><b>Обложка карусели.</b> 3–7 слов, читается за секунду с телефона в движении. Только ситуация или фраза-крик. Никаких развёрнутых тезисов — они физически не читаются в ленте.</li>
+  <li><b>Заголовки внутренних слайдов.</b> Другая задача — навигация, а не крючок. Здесь можно служебно и прямо: они помогают глазу собрать структуру. Первая буква заглавная, не капс.</li>
+  <li><b>Первая строка подписи.</b> Работает как заголовок: до «ещё» видно примерно две строки. Всё, что там стоит, — витрина. Если первая строка подписи служебная («Сегодня хочу поговорить о…»), подпись не читают.</li>
+  <li><b>Блог, Substack, длинный формат.</b> Можно длиннее и сложнее. Здесь хорошо работает вопрос от первого лица и заголовок с ироничным посвящением — у читателя больше терпения, он уже пришёл читать, а не пролистывал.</li>
+</ul>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="band band-dark" id="sec-8"><div class="wrap">
+<span class="secno">ГЛАВА 8 / 8</span>
+<h2 class="sec">Как натренировать глаз</h2>
+<div class="txt"><p>Три вещи, которые реально помогают, если с заголовками пока не получается.</p></div>
+<ul class="list num">
+  <li><b>Завести свайп-файл.</b> Каждый раз, когда сам остановился на чужом заголовке, — скопировать его в отдельный файл и одной строкой написать, почему остановился. Через месяц там будет личная типология сильнее любого чек-листа.</li>
+  <li><b>Разбирать по одному вопросу.</b> Взять пять чужих постов и на каждом ответить только на вопрос «в чьём языке написан заголовок — автора или читателя?». Не всё сразу, по одному фильтру за раз.</li>
+  <li><b>Переписывать свои старые.</b> Взять десять собственных постов и переписать к ним заголовки заново, зная текст. Это самое быстрое упражнение: текст уже есть, работа только с формулировкой.</li>
+</ul>
+<a class="toplink" href="#top">↑ наверх</a>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <div class="kicker">короткая версия, если читать некогда</div>
+  <div class="short">Заголовок пишется последним, вынимается из середины текста, говорит словами читателя, а не эксперта, показывает сцену или произносит вслух то, что человек думает про себя молча, и оставляет вопрос, на который отвечает пост. Вариантов делается <span class="mark">десять</span>. Проверяется чтением вслух и вопросом «это про меня или про тему».</div>
+  <div class="cta">
+    <div class="kicker" style="color:var(--blue)">видео-экскурсия · 37 минут · бесплатно</div>
+    <div style="font-size:24px;font-weight:600;margin-top:12px;line-height:1.25">Как устроен блог, который приводит клиентов</div>
+    <div style="font-size:16px;line-height:1.6;margin-top:12px;color:var(--ink2)">
+      Заголовки — одна деталь системы. На экскурсии показываю всю: от позиционирования до текстов, кейсов и заявок в директ.</div>
+    <div class="gets">
+      <div>Запись экскурсии целиком в Telegram-канале — смотрите, когда удобно</div>
+      <div>Рядом — кейсы участниц: что было в блоге до и что стало через два месяца</div>
+      <div>И недельные цифры моего блога: охваты, сохранения, заявки, без прикрас</div>
+    </div>
+    <a class="btn" href="https://t.me/mbga_materials/2">Смотреть экскурсию →</a>
+  </div>
+</div></section>
+<footer><div class="wrap">андрей андреев · make blog great again · '26 · <a href="https://www.instagram.com/andreyandreev.me/" style="color:var(--mute)">@andreyandreev.me</a></div></footer>
+</body></html>
